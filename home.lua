@@ -10,7 +10,7 @@ end
 
 local approvedDevice = updater.deviceIsApproved()
 
-term.clear()
+utils.clear()
 print('Welcome back to Bonfire!')
 print('Apps:')
 print('-> Chatroom')

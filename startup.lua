@@ -3,6 +3,7 @@ os.pullEvent = os.pullEventRaw
 
 os.loadAPI("/libraries/sha256.lua")
 os.loadAPI("/libraries/textvis.lua")
+os.loadAPI("/libraries/util.lua")
 os.loadAPI("/internal/updater.lua")
 
 if (fs.exists('/appdata/password'))

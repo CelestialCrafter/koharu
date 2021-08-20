@@ -1,4 +1,4 @@
-term.clear()
+utils.clear()
 print('-> Host')
 print('-> Join')
 
@@ -10,7 +10,7 @@ do
 	if (y == 1)
 		then
 			keepUi = false
-			term.clear()
+			utils.clear()
 			print('What should the chatroom be called?')
 			local name = io.read()
 
@@ -20,13 +20,13 @@ do
 		if (y == 2)
 			then
 				keepUi = false
-				term.clear()
+				utils.clear()
 				print('What chatroom do you want to join?')
 				local room = io.read()
-				term.clear()
+				utils.clear()
 				print('What should you be called?')
 				local name = io.read()
-				term.clear()
+				utils.clear()
 
 				shell.run('chat join '..room..' '..name)
 			end

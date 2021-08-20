@@ -4,7 +4,7 @@ local function createPassword()
 	local password = io.read()
 	textvis.showText()
 
-	print("Please re-enter the Password")
+	print("Please re-enter the Password:")
 	textvis.hideText()
 	local confirmedPassword = io.read()
 	textvis.showText()
@@ -16,7 +16,7 @@ local function createPassword()
 	else
 		print("Passwords do not match. Please retry")
 		sleep(1)
-		term.clear()
+		utils.clear()
 		createPassword()
 	end
 end
