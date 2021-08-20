@@ -1,0 +1,1 @@
+shell.run('paint ../appdata/' .. sha256.sha256(os.time() .. os.day()))
