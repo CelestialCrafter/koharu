@@ -1,4 +1,4 @@
-local function createPassword
+local function createPassword()
 	print("Enter Password:")
 	textvis.hideText()
 	local password = io.read()
