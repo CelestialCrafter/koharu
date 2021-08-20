@@ -5,8 +5,6 @@ os.loadAPI("/libraries/sha256.lua")
 os.loadAPI("/libraries/textvis.lua")
 os.loadAPI("/internal/updater.lua")
 
-term.clear()
-
 if (fs.exists('/appdata/password'))
 then
 	local keepPwd = true
