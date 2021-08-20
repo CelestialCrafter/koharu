@@ -6,5 +6,5 @@ function hideText
 end
 
 function showText
-	term.setTextColor(textColor);
+	term.setTextColor(textColor)
 end
