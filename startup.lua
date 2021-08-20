@@ -1,9 +1,9 @@
 prePullEvent = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
-os.loadAPI("libraries/sha256.lua")
-os.loadAPI("libraries/textvis.lua")
-os.loadAPI("internal/updater")
+os.loadAPI("/libraries/sha256.lua")
+os.loadAPI("/libraries/textvis.lua")
+os.loadAPI("/internal/updater")
 
 term.clear()
 
