@@ -14,9 +14,9 @@ local function createPassword()
 		passwordFile.write(sha256.sha256(password))
 		passwordFile.close()
 	else
-
-	print("Passwords do not match. Please retry")
-	sleep(1)
-	term.clear()
-	createPassword()
+		print("Passwords do not match. Please retry")
+		sleep(1)
+		term.clear()
+		createPassword()
+		end
 end
