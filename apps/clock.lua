@@ -1,5 +1,6 @@
 while (true)
 do
 	term.clear()
-	shell.run('time')
+	print(os.time() .. " - Day " .. os.day())
+	sleep(1)
 end
