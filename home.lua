@@ -33,7 +33,10 @@ do
 	local apps = {'/apps/chatroom', '/apps/painting', '/apps/sendFile', '/apps/receiveFile', '/apps/shutdown', '/apps/reboot', '/apps/worm', '/apps/createpassword'}
 	local event, button, x, y = os.pullEvent('mouse_click')
 
-	if (apps[y - 3]) then shell.run(apps[y - 3]) end
+	if (apps[y - 3]) then
+		keepUi = false
+		shell.run(apps[y - 3])
+	end
 
 	if (approvedDevice and y == 13)
 		then
