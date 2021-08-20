@@ -9,7 +9,7 @@ local function createPassword()
 	local confirmedPassword = io.read()
 	textvis.showText()
 
-	if password == confirmedPassword then
+	if (password == confirmedPassword) then
 		local passwordFile = fs.open('/appdata/password', 'w')
 		passwordFile.write(sha256.sha256(password))
 		passwordFile.close()
@@ -18,5 +18,7 @@ local function createPassword()
 		sleep(1)
 		term.clear()
 		createPassword()
-		end
+	end
 end
+
+createPassword()
