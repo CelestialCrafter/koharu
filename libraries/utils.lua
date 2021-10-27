@@ -20,6 +20,11 @@ function getModem()
 	return modem
 end
 
+function sleep(n)
+  local t0 = os.clock()
+  while os.clock() - t0 <= n do end
+end
+
 function hasValue (tab, val)
     for index, value in ipairs(tab) do
         if value == val then

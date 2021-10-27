@@ -1,4 +1,5 @@
 local y = 1
+local keepUi = true
 local appsLength = 8
 local apps = {
 	[1] = {'/apps/chatroom', 'Chatroom'},
@@ -11,21 +12,39 @@ local apps = {
 	[8] = {'/apps/createpassword', 'Create Password'}
 }
 
-while true do
+while keepUi do
 	-- Draw a white space at the current x/y co-ord:
 	term.setBackgroundColor(colours.black)
-	clear()
-	for i, app in pairs(apps) do
-    if (y == i) then term.setBackgroundColor(colors.white) end
+	utils.clear()
+	for i, app in ipairs(apps) do
+    if (y == i) then
+			term.setBackgroundColor(colors.white)
+			term.setTextColor(colors.black)
+		end
 		print('-> ' .. app[2] .. ' <-')
-    if (y == i) then term.setBackgroundColor(colors.black) end
+    if (y == i) then
+			term.setBackgroundColor(colors.black)
+			term.setTextColor(colors.white)
+		end
 	end
 	
 	local event, key = os.pullEvent("key")
-	
-	if key == keys.up && y > 1 then
-		y = y - 1
-	else if key == keys.down && y < appsLength then
-		y = y + 1
+
+	if key == keys.enter then
+		utils.clear()
+		print(apps[y][1])
+		shell.run(apps[y][1])
+	elseif key == keys.up then
+		if y > 1 then
+			y = y - 1
+		elseif y == 1 then
+			y = appsLength
+		end
+	elseif key == keys.down then
+		if y < appsLength then
+			y = y + 1
+		elseif y == appsLength then
+			y = 1
+		end
 	end
 end
