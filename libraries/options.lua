@@ -4,11 +4,11 @@ function generateMenu(options, select, padding)
 	local y = 1
 	local keepUi = true
 	padding = padding or {'-> ', ' <-'}
-	options = {
+	options = options or {
 		{'option1', 'Option 1'},
 		{'option2', 'Option 2'},
 	}
-	optionLength = utils.getTableLength(options)
+	optionsLength = utils.getTableLength(options)
 
 	while keepUi do
 		term.setBackgroundColor(colours.black)

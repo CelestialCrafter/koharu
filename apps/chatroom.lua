@@ -1,6 +1,3 @@
-local y = 1
-local keepUi = true
-local optionsLength = 2
 local options = {
 	[1] = {'host', 'Host'},
 	[2] = {'join', 'Join'}
@@ -20,38 +17,4 @@ function runChat(choice)
 	end
 end
 
-while keepUi do
-	term.setBackgroundColor(colours.black)
-	utils.clear()
-	for i, option in ipairs(options) do
-    if (y == i) then
-			term.setBackgroundColor(colors.white)
-			term.setTextColor(colors.black)
-		end
-		print('-> ' .. options[i][2] .. ' <-')
-    if (y == i) then
-			term.setBackgroundColor(colors.black)
-			term.setTextColor(colors.white)
-		end
-	end
-	
-	local event, key = os.pullEvent('key')
-
-	if key == keys.enter then
-		utils.clear()
-		keepUi = false
-		runChat(options[y][1])
-	elseif key == keys.up then
-		if y > 1 then
-			y = y - 1
-		elseif y == 1 then
-			y = optionsLength
-		end
-	elseif key == keys.down then
-		if y < optionsLength then
-			y = y + 1
-		elseif y == optionsLength then
-			y = 1
-		end
-	end
-end
+options.generateMenu(options, runChat)
