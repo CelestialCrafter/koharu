@@ -1,4 +1,4 @@
-local options = {
+local chatOptions = {
 	[1] = {'host', 'Host'},
 	[2] = {'join', 'Join'}
 }
@@ -17,4 +17,4 @@ function runChat(choice)
 	end
 end
 
-options.generateMenu(options, runChat)
+options.generateMenu(chatOptions, runChat)
