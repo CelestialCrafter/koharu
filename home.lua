@@ -16,9 +16,9 @@ while true do
 	term.setBackgroundColor(colours.black)
 	clear()
 	for i, app in pairs(apps) do
-    if (y == i) term.setBackgroundColor(colors.white)
+    if (y == i) then term.setBackgroundColor(colors.white) end
 		print('-> ' .. app[2] .. ' <-')
-    if (y == i) term.setBackgroundColor(colors.black)
+    if (y == i) then term.setBackgroundColor(colors.black) end
 	end
 	
 	local event, key = os.pullEvent("key")
