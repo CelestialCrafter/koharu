@@ -23,7 +23,7 @@ end
 while keepUi do
 	term.setBackgroundColor(colours.black)
 	utils.clear()
-	for i, app in ipairs(apps) do
+	for i, option in ipairs(options) do
     if (y == i) then
 			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.black)
