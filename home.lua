@@ -33,6 +33,7 @@ while keepUi do
 	if key == keys.enter then
 		utils.clear()
 		print(apps[y][1])
+		utils.sleep(3)
 		shell.run(apps[y][1])
 	elseif key == keys.up then
 		if y > 1 then
