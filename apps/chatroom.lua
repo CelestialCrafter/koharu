@@ -6,7 +6,7 @@ local options = {
 	[2] = {'join', 'Join'}
 }
 
-runChat(choice)
+function runChat(choice)
 	if (choice == 'host') then
 			print('What should the chatroom be called?')
 			local name = io.read()
