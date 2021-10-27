@@ -16,13 +16,28 @@ function scanForModem()
 	end
 end
 
-scanForModem()
-
 function getModem()
 	return modem
+end
+
+function hasValue (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
+function fileExists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
 end
 
 function clear()
 	term.clear()
 	term.setCursorPos(1, 1)
 end
+
+scanForModem()

@@ -1,46 +1,31 @@
-local function hasValue (tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
+local y = 1
+local appsLength = 8
+local apps = {
+	[1] = {'/apps/chatroom', 'Chatroom'},
+	[2] = {'/apps/painting', 'Painting'},
+	[3] = {'/apps/sendFile', 'SendFile'},
+	[4] = {'/apps/receiveFile', 'ReceiveFile'},
+	[5] = {'/apps/shutdown', 'Shutdown'},
+	[6] = {'/apps/reboot', 'Reboot'},
+	[7] = {'/apps/worm', 'Worm'},
+	[8] = {'/apps/createpassword', 'Create Password'}
+}
 
-    return false
-end
-
-local approvedDevice = updater.deviceIsApproved()
-
-utils.clear()
-print('Welcome back to Bonfire!')
-print('Apps:')
-print('-> Chatroom')
-print('-> Painting')
-print('-> SendFile')
-print('-> ReceiveFile')
-print('-> Shutdown')
-print('-> Reboot')
-print('-> Worm')
-print('-> Create Password')
-
-if (approvedDevice) then
-	print('-> Run Server-Side Updater')
-end
-
-local keepUi = true
-
-while (keepUi)
-do
-	local apps = {'/apps/chatroom', '/apps/painting', '/apps/sendFile', '/apps/receiveFile', '/apps/shutdown', '/apps/reboot', '/apps/worm', '/apps/createpassword'}
-	local event, button, x, y = os.pullEvent('mouse_click')
-
-	if (apps[y - 3]) then
-		keepUi = false
-		shell.run(apps[y - 3])
+while true do
+	-- Draw a white space at the current x/y co-ord:
+	term.setBackgroundColor(colours.black)
+	clear()
+	for i, app in pairs(apps) do
+    if (y === i) term.setBackgroundColor(colors.white)
+		print('-> ' .. app[2] .. ' <-')
+    if (y === i) term.setBackgroundColor(colors.black)
 	end
-
-	if (approvedDevice and y == 13)
-		then
-			keepUi = false
-			shell.run('/internal/updater')
-		end
+	
+	local event, key = os.pullEvent("key")
+	
+	if key == keys.up && y > 1 then
+		y = y - 1
+	else if key == keys.down && y < appsLength then
+		y = y + 1
+	end
 end
