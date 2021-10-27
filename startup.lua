@@ -3,6 +3,8 @@ os.pullEvent = os.pullEventRaw
 
 os.loadAPI("/libraries/sha256.lua")
 os.loadAPI("/libraries/textvis.lua")
+os.loadAPI("/libraries/base64.lua")
+os.loadAPI("/libraries/options.lua")
 os.loadAPI("/libraries/utils.lua")
 os.loadAPI("/internal/updater.lua")
 

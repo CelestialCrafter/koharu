@@ -1,24 +1,14 @@
+-- @TODO sendfile/command, receivefile/command, gps, 
+
+function generateMenu(options, select, padding)
 local y = 1
 local keepUi = true
-local optionsLength = 2
-local options = {
-	[1] = {'host', 'Host'},
-	[2] = {'join', 'Join'}
+padding = padding or {'-> ', ' <-'}
+options = {
+	[1] = {'option1', 'Option 1'},
+	[2] = {'option2', 'Option 2'},
 }
-
-function runChat(choice)
-	if (choice == 'host') then
-			print('What should the chatroom be called?')
-			local name = io.read()
-			shell.run('chat host ' .. name)
-	else
-		print('What chatroom do you want to join?')
-		local room = io.read()
-		print('What should you be called?')
-		local name = io.read()
-		shell.run('chat join ' .. room .. ' ' .. name)
-	end
-end
+optionLength = utils.getTableLength()
 
 while keepUi do
 	term.setBackgroundColor(colours.black)
@@ -28,7 +18,7 @@ while keepUi do
 			term.setBackgroundColor(colors.white)
 			term.setTextColor(colors.black)
 		end
-		print('-> ' .. options[i][2] .. ' <-')
+		print(padding[1] .. options[2] .. padding[2])
     if (y == i) then
 			term.setBackgroundColor(colors.black)
 			term.setTextColor(colors.white)
@@ -40,17 +30,17 @@ while keepUi do
 	if key == keys.enter then
 		utils.clear()
 		keepUi = false
-		runChat(options[y][1])
+		select(options[y][1])
 	elseif key == keys.up then
 		if y > 1 then
 			y = y - 1
 		elseif y == 1 then
-			y = optionsLength
+			y = appsLength
 		end
 	elseif key == keys.down then
-		if y < optionsLength then
+		if y < appsLength then
 			y = y + 1
-		elseif y == optionsLength then
+		elseif y == appsLength then
 			y = 1
 		end
 	end

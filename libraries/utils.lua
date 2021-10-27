@@ -20,6 +20,14 @@ function getModem()
 	return modem
 end
 
+function getTableLength(tableTg)
+	local length = 0
+	for k, v in pairs(tableTg) do
+		length = length + 1
+	end
+	return length
+end
+
 function sleep(n)
   local t0 = os.clock()
   while os.clock() - t0 <= n do end
