@@ -13,7 +13,6 @@ local apps = {
 }
 
 while keepUi do
-	-- Draw a white space at the current x/y co-ord:
 	term.setBackgroundColor(colours.black)
 	utils.clear()
 	for i, app in ipairs(apps) do
@@ -32,6 +31,7 @@ while keepUi do
 
 	if key == keys.enter then
 		utils.clear()
+		keepUi = false
 		shell.run(apps[y][1])
 	elseif key == keys.up then
 		if y > 1 then
