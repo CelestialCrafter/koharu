@@ -395,10 +395,6 @@ if (!drive) then
 end
 
 if (confirmation == 'y') then
-	for _, file in pairs(fs.list('/' .. drive)) do
-		fs.delete(file)
-	end
-
 	install('CelestialCrafter', 'bonfire', 'master', drive)
 	print('Installation completed!')
 else
