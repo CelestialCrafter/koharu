@@ -388,7 +388,7 @@ end
 
 print('Are you sure you want to install? (THIS WILL WIPE YOUR DRIVE) [y/n]')
 local confirmation = io.read()
-local drive = ...
+local drive = ... or ''
 
 if (confirmation == 'y') then
 	for _, file in pairs(fs.list('/' .. drive)) do
