@@ -40,4 +40,3 @@ end
 os.pullEvent = prePullEvent
 shell.run('bg /internal/updater')
 shell.run('/home')
-	
