@@ -351,6 +351,9 @@ end
 
 local function install(preset)
 	print(preset)
+	print(preset.user)
+	print(preset.repo)
+	print(preset.branch)
 	local data = decode(http.get('https://api.github.com/repos/' ..
 		preset.user .. '/' .. preset.repo .. '/git/trees/' .. preset.branch .. '?recursive=1').readAll())
 	if data.message and data.message:find('API rate limit exceeded') then error('Out of API calls, try again later') end
