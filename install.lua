@@ -4,7 +4,7 @@ local drive = ...
 
 if (confirmation == "y") then
 	shell.run("rm /" .. drive .. "/*")
-	shell.run("mv ./* /" .. drive)
+	shell.run("cp ./* /" .. drive)
 	print("Installation completed!")
 else
 	print("Installation stopped.")
