@@ -1,6 +1,6 @@
 -- @TODO sendfile/command, receivefile/command, gps, 
 
-function generateMenu(options, select, padding)
+local function generateMenu(options, select, padding)
 	local y = 1
 	local keepUi = true
 	padding = padding or {'-> ', ' <-'}
@@ -46,3 +46,5 @@ function generateMenu(options, select, padding)
 		end
 	end
 end
+
+return { generateMenu = generateMenu }

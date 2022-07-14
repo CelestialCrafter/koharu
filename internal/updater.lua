@@ -1,16 +1,10 @@
-local function hasValue (tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
+local utils = require('libraries.utils')
 
-    return false
-end
-
-function deviceIsApproved()
+local function deviceIsApproved()
 	local approvedDevices = {}
 	local deviceId = os.getComputerID()
 
-	return hasValue(approvedDevices, deviceId)
+	return utils.hasValue(approvedDevices, deviceId)
 end
+
+return { deviceIsApproved = deviceIsApproved }

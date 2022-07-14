@@ -1,10 +1,12 @@
 local backgroundColor = term.getBackgroundColor()
 local textColor = term.getTextColor()
 
-function hideText()
+local function hideText()
 	term.setTextColor(backgroundColor)
 end
 
-function showText()
+local function showText()
 	term.setTextColor(textColor)
 end
+
+return { hideText = hideText, showText = showText }

@@ -1,3 +1,7 @@
+local textvis = require('libraries.textvis')
+local sha256 = require('libraries.sha256')
+local utils = require('libraries.utils')
+
 local function createPassword()
 	print("Enter Password:")
 	textvis.hideText()

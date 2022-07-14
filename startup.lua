@@ -1,12 +1,8 @@
 prePullEvent = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
-os.loadAPI("/libraries/sha256.lua")
-os.loadAPI("/libraries/textvis.lua")
-os.loadAPI("/libraries/base64.lua")
-os.loadAPI("/libraries/options.lua")
-os.loadAPI("/libraries/utils.lua")
-os.loadAPI("/internal/updater.lua")
+local textvis = require('libraries.textvis')
+local sha256 = require('libraries.sha256')
 
 if (fs.exists('/appdata/password'))
 then

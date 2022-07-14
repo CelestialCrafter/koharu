@@ -84,7 +84,7 @@ end
 --
 -- @param input A non-empty input string.
 -- @return The Base64 representation of the input string.
-function encode (input)
+local function encode (input)
 
 	local bytes = { input:byte(i, #input) }
 
@@ -178,7 +178,7 @@ end
 --
 -- @param input The Base64 input to decode.
 -- @return The decoded Base64 string, as a string of bytes.
-function decode (input)
+local function decode (input)
 	
 	local length = #input
 	-- Ignore any padding.
@@ -524,3 +524,5 @@ for i = 1, 100 do
  end
 end
 --]]
+
+return { encode = encode, decode = decode }

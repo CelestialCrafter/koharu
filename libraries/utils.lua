@@ -3,7 +3,7 @@ local detectedSide = nil
 local modem = nil
 local hasRednet = false
 
-function scanForModem()
+local function scanForModem()
 	for k, v in ipairs(sides) do
 		if peripheral.isPresent(v) then
 			if peripheral.getType(v) == "modem" then
@@ -16,11 +16,11 @@ function scanForModem()
 	end
 end
 
-function getModem()
+local function getModem()
 	return modem
 end
 
-function getTableLength(tableTg)
+local function getTableLength(tableTg)
 	local length = 0
 	for k, v in pairs(tableTg) do
 		length = length + 1
@@ -28,12 +28,7 @@ function getTableLength(tableTg)
 	return length
 end
 
-function sleep(n)
-  local t0 = os.clock()
-  while os.clock() - t0 <= n do end
-end
-
-function hasValue (tab, val)
+local function hasValue(tab, val)
     for index, value in ipairs(tab) do
         if value == val then
             return true
@@ -43,14 +38,16 @@ function hasValue (tab, val)
     return false
 end
 
-function fileExists(name)
+local function fileExists(name)
    local f=io.open(name,"r")
    if f~=nil then io.close(f) return true else return false end
 end
 
-function clear()
+local function clear()
 	term.clear()
 	term.setCursorPos(1, 1)
 end
 
 scanForModem()
+
+return { scanForModem = scanForModem, getModem = getModem, getTableLength = getTableLength, sleep = sleep, hasValue = hasValue, fileExists = fileExists, clear = clear }
