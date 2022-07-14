@@ -389,10 +389,6 @@ end
 print('Are you sure you want to install? (THIS WILL WIPE YOUR DRIVE) [y/n]')
 local confirmation = io.read()
 local drive = ...
-if (!drive) then
-	print('No drive!')
-	return
-end
 
 if (confirmation == 'y') then
 	install('CelestialCrafter', 'bonfire', 'master', drive)
