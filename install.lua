@@ -143,7 +143,36 @@ local function decode_error(str, idx, msg)
 	error(string.format("%s at line %d col %d", msg, line_count, col_count))
 end
 
-local function codepoint_to_utf8(n)
+local char_func_map = {
+	['"'] = parse_string,
+	["0"] = parse_number,
+	["1"] = parse_number,
+	["2"] = parse_number,
+	["3"] = parse_number,
+	["4"] = parse_number,
+	["5"] = parse_number,
+	["6"] = parse_number,
+	["7"] = parse_number,
+	["8"] = parse_number,
+	["9"] = parse_number,
+	["-"] = parse_number,
+	["t"] = parse_literal,
+	["f"] = parse_literal,
+	["n"] = parse_literal,
+	["["] = parse_array,
+	["{"] = parse_object,
+}
+
+function parse(str, idx)
+	local chr = str:sub(idx, idx)
+	local f = char_func_map[chr]
+	if f then
+		return f(str, idx)
+	end
+	decode_error(str, idx, "unexpected character '" .. chr .. "'")
+end
+
+function codepoint_to_utf8(n)
 	-- http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=iws-appendixa
 	local f = math.floor
 	if n <= 0x7f then
@@ -159,7 +188,7 @@ local function codepoint_to_utf8(n)
 	error(string.format("invalid unicode codepoint '%x'", n))
 end
 
-local function parse_unicode_escape(s)
+function parse_unicode_escape(s)
 	local n1 = tonumber(s:sub(1, 4), 16)
 	local n2 = tonumber(s:sub(7, 10), 16)
 	-- Surrogate pair?
@@ -170,7 +199,7 @@ local function parse_unicode_escape(s)
 	end
 end
 
-local function parse_string(str, i)
+function parse_string(str, i)
 	local res = ""
 	local j = i + 1
 	local k = j
@@ -210,7 +239,7 @@ local function parse_string(str, i)
 	decode_error(str, i, "expected closing quote for string")
 end
 
-local function parse_number(str, i)
+function parse_number(str, i)
 	local x = next_char(str, i, delim_chars)
 	local s = str:sub(i, x - 1)
 	local n = tonumber(s)
@@ -220,7 +249,7 @@ local function parse_number(str, i)
 	return n, x
 end
 
-local function parse_literal(str, i)
+function parse_literal(str, i)
 	local x = next_char(str, i, delim_chars)
 	local word = str:sub(i, x - 1)
 	if not literals[word] then
@@ -229,7 +258,7 @@ local function parse_literal(str, i)
 	return literal_map[word], x
 end
 
-local function parse_array(str, i)
+function parse_array(str, i)
 	local res = {}
 	local n = 1
 	i = i + 1
@@ -255,7 +284,7 @@ local function parse_array(str, i)
 	return res, i
 end
 
-local function parse_object(str, i)
+function parse_object(str, i)
 	local res = {}
 	i = i + 1
 	while 1 do
@@ -289,36 +318,6 @@ local function parse_object(str, i)
 		if chr ~= "," then decode_error(str, i, "expected '}' or ','") end
 	end
 	return res, i
-end
-
-local char_func_map = {
-	['"'] = parse_string,
-	["0"] = parse_number,
-	["1"] = parse_number,
-	["2"] = parse_number,
-	["3"] = parse_number,
-	["4"] = parse_number,
-	["5"] = parse_number,
-	["6"] = parse_number,
-	["7"] = parse_number,
-	["8"] = parse_number,
-	["9"] = parse_number,
-	["-"] = parse_number,
-	["t"] = parse_literal,
-	["f"] = parse_literal,
-	["n"] = parse_literal,
-	["["] = parse_array,
-	["{"] = parse_object,
-}
-
-
-local function parse(str, idx)
-	local chr = str:sub(idx, idx)
-	local f = char_func_map[chr]
-	if f then
-		return f(str, idx)
-	end
-	decode_error(str, idx, "unexpected character '" .. chr .. "'")
 end
 
 local function decode(str)
