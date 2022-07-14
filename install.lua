@@ -169,6 +169,7 @@ function parse(str, idx)
 	if f then
 		return f(str, idx)
 	end
+	print(str)
 	decode_error(str, idx, "unexpected character '" .. chr .. "'")
 end
 
