@@ -139,6 +139,7 @@ local function parseString(str)
 	return s, removeWhite(str:sub(2))
 end
 
+
 local function parseArray(str)
 	str = removeWhite(str:sub(2))
 
@@ -155,7 +156,7 @@ local function parseArray(str)
 	return val, str
 end
 
-local function parseObject(str)
+function parseObject(str)
 	str = removeWhite(str:sub(2))
 
 	local val = {}
@@ -169,15 +170,7 @@ local function parseObject(str)
 	return val, str
 end
 
-local function parseMember(str)
-	local k = nil
-	k, str = parseValue(str)
-	local val = nil
-	val, str = parseValue(str)
-	return k, val, str
-end
-
-local function parseValue(str)
+function parseValue(str)
 	local fchar = str:sub(1, 1)
 	if fchar == "{" then
 		return parseObject(str)
@@ -193,6 +186,14 @@ local function parseValue(str)
 		return parseNull(str)
 	end
 	return nil
+end
+
+function parseMember(str)
+	local k = nil
+	k, str = parseValue(str)
+	local val = nil
+	val, str = parseValue(str)
+	return k, val, str
 end
 
 local function decode(str)
