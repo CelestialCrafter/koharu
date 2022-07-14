@@ -349,18 +349,14 @@ local function save(data, file)
 	f.close()
 end
 
-local function install(preset)
-	print(preset)
-	print(preset.user)
-	print(preset.repo)
-	print(preset.branch)
+local function install(user, repo, branch, path)
 	local data = decode(http.get('https://api.github.com/repos/' ..
-		preset.user .. '/' .. preset.repo .. '/git/trees/' .. preset.branch .. '?recursive=1').readAll())
+		user .. '/' .. repo .. '/git/trees/' .. branch .. '?recursive=1').readAll())
 	if data.message and data.message:find('API rate limit exceeded') then error('Out of API calls, try again later') end
 	if data.message and data.message == 'Not found' then error('Invalid repository', 2) else
 		for k, v in pairs(data.tree) do
 			if v.type == "tree" then
-				fs.makeDir(fs.combine(preset.path, v.path))
+				fs.makeDir(fs.combine(path, v.path))
 			end
 		end
 		local filecount = 0
@@ -370,9 +366,9 @@ local function install(preset)
 		for k, v in pairs(data.tree) do
 			if v.type == "blob" then
 				v.path = v.path:gsub("%s", "%%20")
-				local url = 'https://raw.github.com/' .. preset.user .. '/' .. preset.repo .. '/' .. preset.branch .. '/' .. v.path
+				local url = 'https://raw.github.com/' .. user .. '/' .. repo .. '/' .. branch .. '/' .. v.path
 				http.request(url)
-				paths[url] = fs.combine(preset.path, v.path)
+				paths[url] = fs.combine(path, v.path)
 				filecount = filecount + 1
 			end
 		end
@@ -400,12 +396,7 @@ if (confirmation == 'y') then
 		fs.delete(file)
 	end
 
-	install({
-		user = 'CelestilaCrafter',
-		repo = 'bonfire',
-		branch = 'master',
-		path = drive
-	})
+	install('CelestialCrafter', 'bonfire', 'master', drive)
 	print('Installation completed!')
 else
 	print('Installation stopped.')
