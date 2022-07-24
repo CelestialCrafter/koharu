@@ -1,17 +1,18 @@
--- @TODO sendfile/command, receivefile/command, gps, 
+-- @TODO sendfile/command, receivefile/command, gps,
+local utils = require('libraries.utils')
 
 local function generateMenu(options, select, padding)
 	local y = 1
 	local keepUi = true
-	padding = padding or {'-> ', ' <-'}
+	padding = padding or { '-> ', ' <-' }
 	options = options or {
-		{'option1', 'Option 1'},
-		{'option2', 'Option 2'},
+		{ 'option1', 'Option 1' },
+		{ 'option2', 'Option 2' },
 	}
 	optionsLength = utils.getTableLength(options)
 
 	while keepUi do
-		term.setBackgroundColor(colours.black)
+		term.setBackgroundColor(colors.black)
 		utils.clear()
 		for i, option in ipairs(options) do
 			if (y == i) then
@@ -24,7 +25,7 @@ local function generateMenu(options, select, padding)
 				term.setTextColor(colors.white)
 			end
 		end
-		
+
 		local event, key = os.pullEvent('key')
 
 		if key == keys.enter then

@@ -1,4 +1,4 @@
-local sides = {"front", "back", "left", "right", "top", "bottom"}
+local sides = { "front", "back", "left", "right", "top", "bottom" }
 local detectedSide = nil
 local modem = nil
 local hasRednet = false
@@ -29,18 +29,18 @@ local function getTableLength(tableTg)
 end
 
 local function hasValue(tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
+	for index, value in ipairs(tab) do
+		if value == val then
+			return true
+		end
+	end
 
-    return false
+	return false
 end
 
 local function fileExists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
+	local f = io.open(name, "r")
+	if f ~= nil then io.close(f) return true else return false end
 end
 
 local function clear()
@@ -50,4 +50,5 @@ end
 
 scanForModem()
 
-return { scanForModem = scanForModem, getModem = getModem, getTableLength = getTableLength, sleep = sleep, hasValue = hasValue, fileExists = fileExists, clear = clear }
+return { scanForModem = scanForModem, getModem = getModem, getTableLength = getTableLength, sleep = sleep,
+	hasValue = hasValue, fileExists = fileExists, clear = clear, hasRednet, detectedSide }

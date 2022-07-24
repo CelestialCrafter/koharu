@@ -3,6 +3,12 @@
 		"shell",
 		"http",
 		"fs",
-		"sleep"
+		"sleep",
+		"colors",
+		"term",
+		"bit32_band",
+		"lshift",
+		"peripheral",
+		"keys"
 	]
 }
