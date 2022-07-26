@@ -1,7 +1,7 @@
 print('What file would you like to send?')
 local fileName = io.read()
 print('What device ID would you like to send it to?')
-local id = io.read()
+local id = tonumber(io.read())
 
 local file = fs.open(fileName, 'r')
 if (not file) then

@@ -22,6 +22,10 @@ function utils.getModem()
 	return modem
 end
 
+function utils.openRednet()
+	return rednet.open(modem)
+end
+
 function utils.getTableLength(tableTg)
 	local length = 0
 	for k, v in pairs(tableTg) do
