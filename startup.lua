@@ -1,8 +1,8 @@
 local prePullEvent = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
-local textvis = require('libraries.textvis')
-local sha256 = require('libraries.sha256')
+local textvis = require('/libraries/textvis')
+local sha256 = require('/libraries/sha256')
 
 if (fs.exists('/files/password'))
 then
@@ -38,5 +38,5 @@ then
 end
 
 os.pullEvent = prePullEvent
-shell.run('bg /internal/updater')
+-- shell.run('bg /internal/updater')
 shell.run('/home')

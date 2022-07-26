@@ -1,12 +1,12 @@
 -- @TODO sendfile/command, receivefile/command, gps,
-local utils = require('libraries.utils')
+local utils = require('/libraries/utils')
 local options = {}
 
 function options.generateMenu(options, select, padding)
 	local y = 1
 	local keepUi = true
 	padding = padding or { '-> ', ' <-' }
-	options = utils.filterTable(options, function(k, v) end) or {
+	options = options or {
 		{ 'option1', 'Option 1' },
 		{ 'option2', 'Option 2' }
 	}

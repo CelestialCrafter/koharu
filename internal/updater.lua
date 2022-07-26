@@ -1,4 +1,4 @@
-local utils = require('libraries.utils')
+local utils = require('/libraries/utils')
 local updater = {}
 
 function updater.deviceIsApproved()

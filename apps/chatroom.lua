@@ -1,4 +1,4 @@
-local options = require('libraries.options')
+local options = require('/libraries/options')
 
 local chatOptions = {
 	[1] = { 'host', 'Host' },
