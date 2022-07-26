@@ -23,7 +23,7 @@ function utils.getModem()
 end
 
 function utils.openRednet()
-	return rednet.open(modem)
+	return rednet.open(utils.detectedSide)
 end
 
 function utils.getTableLength(tableTg)
@@ -64,6 +64,7 @@ function utils.filterTable(table, filterFunction)
 	return output
 end
 
+utils.openRednet()
 utils.scanForModem()
 
 return utils
