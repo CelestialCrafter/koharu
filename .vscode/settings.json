@@ -9,6 +9,7 @@
 		"bit32_band",
 		"lshift",
 		"peripheral",
-		"keys"
+		"keys",
+		"rednet"
 	]
 }

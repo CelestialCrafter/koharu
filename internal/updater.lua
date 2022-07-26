@@ -1,10 +1,11 @@
 local utils = require('libraries.utils')
+local updater = {}
 
-local function deviceIsApproved()
+function updater.deviceIsApproved()
 	local approvedDevices = {}
 	local deviceId = os.getComputerID()
 
 	return utils.hasValue(approvedDevices, deviceId)
 end
 
-return { deviceIsApproved = deviceIsApproved }
+return updater

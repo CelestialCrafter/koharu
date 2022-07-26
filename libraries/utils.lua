@@ -1,14 +1,16 @@
+local utils = {
+	detectedSide = nil,
+	hasRednet = false
+}
 local sides = { "front", "back", "left", "right", "top", "bottom" }
-local detectedSide = nil
 local modem = nil
-local hasRednet = false
 
-local function scanForModem()
+function utils.scanForModem()
 	for k, v in ipairs(sides) do
 		if peripheral.isPresent(v) then
-			if peripheral.getType(v) == "modem" then
-				detectedSide = v
-				hasRednet = true
+			if peripheral.getType(v) == 'modem' then
+				utils.detectedSide = v
+				utils.hasRednet = true
 				modem = peripheral.wrap(v)
 				break
 			end
@@ -16,11 +18,11 @@ local function scanForModem()
 	end
 end
 
-local function getModem()
+function utils.getModem()
 	return modem
 end
 
-local function getTableLength(tableTg)
+function utils.getTableLength(tableTg)
 	local length = 0
 	for k, v in pairs(tableTg) do
 		length = length + 1
@@ -28,9 +30,9 @@ local function getTableLength(tableTg)
 	return length
 end
 
-local function hasValue(tab, val)
-	for index, value in ipairs(tab) do
-		if value == val then
+function utils.hasValue(tab, val)
+	for i, v in ipairs(tab) do
+		if v == val then
 			return true
 		end
 	end
@@ -38,17 +40,26 @@ local function hasValue(tab, val)
 	return false
 end
 
-local function fileExists(name)
-	local f = io.open(name, "r")
+function utils.fileExists(name)
+	local f = io.open(name, 'r')
 	if f ~= nil then io.close(f) return true else return false end
 end
 
-local function clear()
+function utils.clear()
 	term.clear()
 	term.setCursorPos(1, 1)
 end
 
-scanForModem()
+function utils.filterTable(table, filterFunction)
+	local output = {}
 
-return { scanForModem = scanForModem, getModem = getModem, getTableLength = getTableLength, sleep = sleep,
-	hasValue = hasValue, fileExists = fileExists, clear = clear, hasRednet, detectedSide }
+	for k, v in pairs(table) do
+		if filterFunction(v, k, table) then table.insert(output, v) end
+	end
+
+	return output
+end
+
+utils.scanForModem()
+
+return utils

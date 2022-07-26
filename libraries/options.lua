@@ -1,15 +1,16 @@
 -- @TODO sendfile/command, receivefile/command, gps,
 local utils = require('libraries.utils')
+local options = {}
 
-local function generateMenu(options, select, padding)
+function options.generateMenu(options, select, padding)
 	local y = 1
 	local keepUi = true
 	padding = padding or { '-> ', ' <-' }
-	options = options or {
+	options = utils.filterTable(options, function(k, v) end) or {
 		{ 'option1', 'Option 1' },
-		{ 'option2', 'Option 2' },
+		{ 'option2', 'Option 2' }
 	}
-	optionsLength = utils.getTableLength(options)
+	local optionsLength = utils.getTableLength(options)
 
 	while keepUi do
 		term.setBackgroundColor(colors.black)
@@ -19,7 +20,7 @@ local function generateMenu(options, select, padding)
 				term.setBackgroundColor(colors.white)
 				term.setTextColor(colors.black)
 			end
-			print(padding[1] .. options[i][2] .. padding[2])
+			print(padding[1] .. option[2] .. padding[2])
 			if (y == i) then
 				term.setBackgroundColor(colors.black)
 				term.setTextColor(colors.white)
@@ -48,4 +49,4 @@ local function generateMenu(options, select, padding)
 	end
 end
 
-return { generateMenu = generateMenu }
+return options

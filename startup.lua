@@ -1,14 +1,14 @@
-prePullEvent = os.pullEvent
+local prePullEvent = os.pullEvent
 os.pullEvent = os.pullEventRaw
 
 local textvis = require('libraries.textvis')
 local sha256 = require('libraries.sha256')
 
-if (fs.exists('/appdata/password'))
+if (fs.exists('/files/password'))
 then
 	local keepPwd = true
 	local index = 0
-	local passwordFile = fs.open('/appdata/password', 'r')
+	local passwordFile = fs.open('/files/password', 'r')
 
 	print('Enter Password:')
 	while (keepPwd) do

@@ -1,12 +1,13 @@
-local backgroundColor = term.getBackgroundColor()
-local textColor = term.getTextColor()
+local textvis = {}
 
-local function hideText()
+function textvis.hideText()
+	local backgroundColor = term.getBackgroundColor()
 	term.setTextColor(backgroundColor)
 end
 
-local function showText()
+function textvis.showText()
+	local textColor = term.getTextColor()
 	term.setTextColor(textColor)
 end
 
-return { hideText = hideText, showText = showText }
+return textvis
