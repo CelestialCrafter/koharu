@@ -6,7 +6,7 @@ local sides = { "front", "back", "left", "right", "top", "bottom" }
 local modem = nil
 
 function utils.scanForModem()
-	for k, v in ipairs(sides) do
+	for i, v in ipairs(sides) do
 		if peripheral.isPresent(v) then
 			if peripheral.getType(v) == 'modem' then
 				utils.detectedSide = v
@@ -64,7 +64,7 @@ function utils.filterTable(table, filterFunction)
 	return output
 end
 
-utils.openRednet()
 utils.scanForModem()
+utils.openRednet()
 
 return utils
