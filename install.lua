@@ -431,6 +431,7 @@ local drive = ...
 if (confirmation == 'y') then
 	install('CelestialCrafter', 'bonfire', 'master', drive)
 	print('Installation completed!')
+	os.reboot()
 else
 	print('Installation stopped.')
 end
