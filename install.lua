@@ -425,7 +425,7 @@ local function install(user, repo, branch, path)
 end
 
 print('Are you sure you want to install? (THIS WILL WIPE YOUR DRIVE) [y/n]')
-local confirmation = io.read()
+local confirmation = read()
 local drive = ...
 
 if (confirmation == 'y') then

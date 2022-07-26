@@ -1,17 +1,12 @@
-local textvis = require('/libraries/textvis')
 local sha256 = require('/libraries/sha256')
 local utils = require('/libraries/utils')
 
 local function createPassword()
 	print('Enter Password:')
-	textvis.hideText()
-	local password = io.read()
-	textvis.showText()
+	local password = read('*')
 
 	print('Please re-enter the Password:')
-	textvis.hideText()
-	local confirmedPassword = io.read()
-	textvis.showText()
+	local confirmedPassword = read('*')
 
 	if (password == confirmedPassword) then
 		local passwordFile = fs.open('/internal/password', 'w')

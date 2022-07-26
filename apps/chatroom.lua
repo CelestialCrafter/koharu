@@ -8,13 +8,13 @@ local chatOptions = {
 local function runChat(choice)
 	if (choice == 'host') then
 		print('What should the chatroom be called?')
-		local name = io.read()
+		local name = read()
 		shell.run('chat host ' .. name)
 	else
 		print('What chatroom do you want to join?')
-		local room = io.read()
+		local room = read()
 		print('What should you be called?')
-		local name = io.read()
+		local name = read()
 		shell.run('chat join ' .. room .. ' ' .. name)
 	end
 end
