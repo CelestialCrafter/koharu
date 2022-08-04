@@ -12,4 +12,4 @@ local apps = {
 	{ '/apps/createpassword', 'Create Password' }
 }
 
-options.generateMenu(apps, function(appPath) shell.run(appPath) end)
+options.generateMenu(apps, function(appPath) shell.run(appPath) end, nil, true)

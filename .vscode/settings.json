@@ -12,6 +12,7 @@
 		"keys",
 		"rednet",
 		"read",
-		"write"
+		"write",
+		"window"
 	]
 }

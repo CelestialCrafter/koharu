@@ -430,6 +430,7 @@ local drive = ...
 
 if (confirmation == 'y') then
 	install('CelestialCrafter', 'bonfire', 'master', drive)
+	if (turtle) then fs.delete('startup.lua') end
 	print('Installation completed!')
 	os.reboot()
 else

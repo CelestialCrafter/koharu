@@ -2,9 +2,10 @@
 local utils = require('/libraries/utils')
 local options = {}
 
-function options.generateMenu(options, select, padding)
+function options.generateMenu(options, select, padding, persist)
 	local y = 1
 	local keepUi = true
+	persist = persist or false
 	padding = padding or { '-> ', ' <-' }
 	options = options or {
 		{ 'option1', 'Option 1' },
@@ -31,7 +32,7 @@ function options.generateMenu(options, select, padding)
 
 		if key == keys.enter then
 			utils.clear()
-			keepUi = false
+			if (not persist) then keepUi = false end
 			select(options[y][1])
 		elseif key == keys.up then
 			if y > 1 then
