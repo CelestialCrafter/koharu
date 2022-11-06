@@ -424,14 +424,16 @@ local function install(user, repo, branch, path)
 	end
 end
 
-print('Are you sure you want to install? (THIS WILL WIPE YOUR DRIVE) [y/n]')
-local confirmation = read()
 local drive = ...
 
 if (not drive) then
 	print('You need to input a drive!')
 	return
 end
+
+print('Are you sure you want to install? (THIS WILL WIPE YOUR DRIVE) [y/n]')
+local confirmation = read()
+
 
 if (confirmation == 'y') then
 	install('CelestialCrafter', 'bonfire', 'master', drive)
