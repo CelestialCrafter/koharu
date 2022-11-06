@@ -428,11 +428,15 @@ print('Are you sure you want to install? (THIS WILL WIPE YOUR DRIVE) [y/n]')
 local confirmation = read()
 local drive = ...
 
+if (not drive) then
+	print('You need to input a drive!')
+	return
+end
+
 if (confirmation == 'y') then
 	install('CelestialCrafter', 'bonfire', 'master', drive)
 	if (turtle) then fs.delete('startup.lua') end
 	print('Installation completed!')
-	os.reboot()
 else
 	print('Installation stopped.')
 end
