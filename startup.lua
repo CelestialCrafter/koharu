@@ -3,11 +3,12 @@ os.pullEvent = os.pullEventRaw
 
 local sha256 = require('/libraries/sha256')
 
-if (fs.exists('/files/password'))
+if (fs.exists('/internal/password'))
 then
 	local keepPwd = true
 	local index = 0
-	local passwordFile = fs.open('/files/password', 'r')
+	local passwordFile = fs.open('/internal/password', 'r')
+
 
 	print('Enter Password:')
 	while (keepPwd) do
