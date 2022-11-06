@@ -76,6 +76,8 @@ function utils.split(inputstr, sep)
 end
 
 utils.scanForModem()
-utils.openRednet()
+if modem then
+	utils.openRednet()
+end
 
 return utils
