@@ -8,7 +8,6 @@ local apps = {
 	{ '/apps/receiveFile', 'ReceiveFile' },
 	{ '/apps/shutdown', 'Shutdown' },
 	{ '/apps/reboot', 'Reboot' },
-	{ '/apps/worm', 'Worm' },
 	{ '/apps/createpassword', 'Create Password' }
 }
 

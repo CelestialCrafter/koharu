@@ -9,7 +9,6 @@ then
 	local index = 0
 	local passwordFile = fs.open('/internal/password', 'r')
 
-
 	print('Enter Password:')
 	while (keepPwd) do
 		if (index == 3) then

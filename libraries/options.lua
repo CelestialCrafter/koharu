@@ -4,7 +4,6 @@ local options = {}
 
 function options.generateMenu(options, select, padding, persist)
 	local y = 1
-	local keepUi = true
 	persist = persist or false
 	padding = padding or { '-> ', ' <-' }
 	options = options or {
@@ -13,7 +12,7 @@ function options.generateMenu(options, select, padding, persist)
 	}
 	local optionsLength = utils.getTableLength(options)
 
-	while keepUi do
+	while true do
 		term.setBackgroundColor(colors.black)
 		utils.clear()
 		for i, option in ipairs(options) do
@@ -32,8 +31,9 @@ function options.generateMenu(options, select, padding, persist)
 
 		if key == keys.enter then
 			utils.clear()
-			if (not persist) then keepUi = false end
+			if (not persist) then break end
 			select(options[y][1])
+			break
 		elseif key == keys.up then
 			if y > 1 then
 				y = y - 1
