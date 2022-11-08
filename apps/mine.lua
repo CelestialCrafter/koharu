@@ -10,10 +10,7 @@ local function refuel()
 	end
 end
 
-local j = -1
-
 while true do
-	j = j + 1
 	for i = 1, 16 do
 		refuel()
 		local item = turtle.getItemDetail(i)
@@ -33,8 +30,8 @@ while true do
 
 	for i = 1, 5, 1 do
 		turtle.digUp()
-		turtle.dig()
 		turtle.digDown()
+		turtle.dig()
 		turtle.forward()
 
 	end
