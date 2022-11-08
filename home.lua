@@ -6,6 +6,8 @@ local apps = {
 	{ '/apps/painting', 'Painting' },
 	{ '/apps/sendFile', 'SendFile' },
 	{ '/apps/receiveFile', 'ReceiveFile' },
+	{ '/apps/sendCommand', 'SendCommand' },
+	{ '/apps/receiveCommand', 'RecieveCommand' },
 	{ '/apps/shutdown', 'Shutdown' },
 	{ '/apps/reboot', 'Reboot' },
 	{ '/apps/createpassword', 'Create Password' }
