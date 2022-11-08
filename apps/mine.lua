@@ -21,10 +21,6 @@ while true do
 			'minecraft:gravel',
 			'minecraft:flint' }
 		if not (item == nil) then
-			if i % 7 == 0 and item.name == 'minecraft:torch' then
-				turtle.select(i)
-				turtle.placeDown()
-			end
 			if utils.hasValue(blacklistedItems, item.name) then
 				turtle.select(i)
 				turtle.drop(64)
@@ -38,6 +34,7 @@ while true do
 	for i = 1, 5, 1 do
 		turtle.digUp()
 		turtle.dig()
+		turtle.digDown()
 		turtle.forward()
 
 	end
