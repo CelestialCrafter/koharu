@@ -24,7 +24,7 @@ while true do
 			end
 		end
 	end
-	turtle.select(0)
+	turtle.select(1)
 
 	currentTurn = not currentTurn
 
