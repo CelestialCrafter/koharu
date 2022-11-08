@@ -10,7 +10,7 @@ local function refuel()
 	end
 end
 
-local i = 0
+local i = -1
 
 while true do
 	i = i + 1
@@ -21,7 +21,7 @@ while true do
 			'minecraft:gravel',
 			'minecraft:flint' }
 		if not (item == nil) then
-			if i % 7 == 0 and item.name == 'minecraft:torch' then
+			if i % 5 == 0 and item.name == 'minecraft:torch' then
 				turtle.select(i)
 				turtle.placeDown()
 			end
