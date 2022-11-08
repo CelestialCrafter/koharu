@@ -7,7 +7,7 @@ local apps = {
 	{ '/apps/sendFile', 'SendFile' },
 	{ '/apps/receiveFile', 'ReceiveFile' },
 	{ '/apps/sendCommand', 'SendCommand' },
-	{ '/apps/receiveCommand', 'RecieveCommand' },
+	{ '/apps/receiveCommand', 'ReceiveCommand' },
 	{ '/apps/shutdown', 'Shutdown' },
 	{ '/apps/reboot', 'Reboot' },
 	{ '/apps/createpassword', 'Create Password' }
