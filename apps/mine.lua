@@ -37,7 +37,6 @@ while true do
 
 	for i = 1, 5, 1 do
 		turtle.digUp()
-		turtle.digDown()
 		turtle.dig()
 		turtle.forward()
 
