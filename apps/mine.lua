@@ -23,6 +23,7 @@ while true do
 			end
 		end
 	end
+	turtle.select(0)
 
 	currentTurn = not currentTurn
 
