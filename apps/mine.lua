@@ -10,7 +10,10 @@ local function refuel()
 	end
 end
 
+local i = 0
+
 while true do
+	i = i + 1
 	for i = 1, 16 do
 		refuel()
 		local item = turtle.getItemDetail(i)
@@ -18,6 +21,10 @@ while true do
 			'minecraft:gravel',
 			'minecraft:flint' }
 		if not (item == nil) then
+			if i % 7 == 0 and item.name == 'minecraft:torch' then
+				turtle.select(i)
+				turtle.placeDown()
+			end
 			if utils.hasValue(blacklistedItems, item.name) then
 				turtle.select(i)
 				turtle.drop(64)
