@@ -13,6 +13,7 @@
 		"rednet",
 		"read",
 		"write",
-		"window"
+		"window",
+		"turtle"
 	]
 }
