@@ -5,7 +5,7 @@ turtle.turnRight()
 
 local function refuel()
 	local fuelLimit = turtle.getFuelLimit()
-	if turtle.getFuelLevel() < fuelLimit / 4 then
+	if turtle.getFuelLevel() < fuelLimit / 16 then
 		turtle.refuel(16)
 	end
 end
