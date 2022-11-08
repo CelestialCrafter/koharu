@@ -6,7 +6,7 @@ turtle.turnRight()
 local function refuel()
 	local fuelLimit = turtle.getFuelLimit()
 	if turtle.getFuelLevel() < fuelLimit / 16 then
-		turtle.refuel(16)
+		turtle.refuel(8)
 	end
 end
 
@@ -14,7 +14,8 @@ while true do
 	for i = 1, 16 do
 		refuel()
 		local item = turtle.getItemDetail(i)
-		local blacklistedItems = { 'minecraft:cobblestone', 'minecraft:cobbled_deepslate', 'minecraft:tuff', 'minecraft:gravel',
+		local blacklistedItems = { 'minecraft:dirt', 'minecraft:cobblestone', 'minecraft:cobbled_deepslate', 'minecraft:tuff',
+			'minecraft:gravel',
 			'minecraft:flint' }
 		if not (item == nil) then
 			if utils.hasValue(blacklistedItems, item.name) then
