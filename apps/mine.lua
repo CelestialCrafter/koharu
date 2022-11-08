@@ -21,7 +21,7 @@ while true do
 			'minecraft:gravel',
 			'minecraft:flint' }
 		if not (item == nil) then
-			if i % 5 == 0 and item.name == 'minecraft:torch' then
+			if (i / 5) - math.abs(i / 5) == 0 and item.name == 'minecraft:torch' then
 				turtle.select(i)
 				turtle.placeDown()
 			end
