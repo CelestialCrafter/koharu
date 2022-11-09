@@ -10,6 +10,15 @@ local function refuel()
 	end
 end
 
+local function clearGravel()
+	local hasBlock, data = turtle.inspect()
+	while hasBlock and data.name do
+		hasBlock, data = turtle.inspect()
+		turtle.dig()
+		os.sleep(0.5)
+	end
+end
+
 local j = 0
 while true do
 	j = j + 1
@@ -34,6 +43,7 @@ while true do
 		turtle.digUp()
 		turtle.digDown()
 		turtle.dig()
+		clearGravel()
 		turtle.forward()
 	end
 
@@ -45,6 +55,7 @@ while true do
 
 	turtle.digUp()
 	turtle.dig()
+	clearGravel()
 	turtle.digDown()
 
 	for i = 1, 16 do
