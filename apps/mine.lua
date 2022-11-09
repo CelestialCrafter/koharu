@@ -61,7 +61,7 @@ while true do
 	for i = 1, 16 do
 		local item = turtle.getItemDetail(i)
 		if not (item == nil) then
-			if j % 5 == 0 and item.name == 'minecraft:torch' then
+			if j % 10 == 0 and item.name == 'minecraft:torch' then
 				turtle.select(i)
 				turtle.placeDown()
 			end
