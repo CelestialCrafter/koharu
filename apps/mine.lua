@@ -10,7 +10,9 @@ local function refuel()
 	end
 end
 
+local j = 0
 while true do
+	j = j + 1
 	for i = 1, 16 do
 		refuel()
 		local item = turtle.getItemDetail(i)
@@ -33,22 +35,33 @@ while true do
 		turtle.digDown()
 		turtle.dig()
 		turtle.forward()
-
 	end
 
-	if not currentTurn then
-		turtle.turnRight()
-		turtle.digUp()
-		turtle.dig()
-		turtle.digDown()
-		turtle.forward()
-		turtle.turnRight()
+	if currentTurn then
+		turtle.turnLeft()
 	else
+		turtle.turnRight()
+	end
+
+	turtle.digUp()
+	turtle.dig()
+	turtle.digDown()
+
+	for i = 1, 16 do
+		local item = turtle.getItemDetail(i)
+		if not (item == nil) then
+			if j % 5 == 0 and item.name == 'minecraft:torch' then
+				turtle.select(i)
+				turtle.placeDown()
+			end
+		end
+	end
+
+	turtle.forward()
+
+	if currentTurn then
 		turtle.turnLeft()
-		turtle.digUp()
-		turtle.dig()
-		turtle.digDown()
-		turtle.forward()
-		turtle.turnLeft()
+	else
+		turtle.turnRight()
 	end
 end
