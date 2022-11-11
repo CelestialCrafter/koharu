@@ -26,7 +26,8 @@ else
 			monitor.clear()
 
 			paintutils.drawImage(image, 1, 1)
-			sleep(1)
+			redstone.setOutput('back', not redstone.getOutput('back'))
+			os.pullEvent('redstone')
 		end
 	end
 
