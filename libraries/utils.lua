@@ -75,11 +75,6 @@ function utils.split(inputstr, sep)
 	return t
 end
 
-function utils.sleep(ms)
-	local start = os.clock()
-	while os.clock() - start <= ms do end
-end
-
 utils.scanForModem()
 if modem then
 	utils.openRednet()

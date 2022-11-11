@@ -20,13 +20,13 @@ else
 
 	term.redirect(monitor)
 
-	while True do
+	while true do
 		for _, image in pairs(parsedImages) do
 			monitor.setBackgroundColor(colors.black)
 			monitor.clear()
 
 			paintutils.drawImage(image, 1, 1)
-			utils.sleep(200)
+			sleep(1)
 		end
 	end
 
