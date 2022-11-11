@@ -1,5 +1,13 @@
-print('Where do you want to read from?')
-local fileName = read()
+local fileName = ''
+local file = fs.open('files/defaultImage', 'r')
+
+if (not file) then
+	print('Where do you want to read from?')
+	fileName = read()
+else
+	fileName = file.readAll()
+	file.close()
+end
 
 local image = paintutils.loadImage(fileName)
 local monitor = peripheral.wrap('left')
