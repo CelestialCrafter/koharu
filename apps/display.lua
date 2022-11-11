@@ -11,8 +11,6 @@ end
 
 local image = paintutils.loadImage(fileName)
 local monitor = peripheral.wrap('left')
-monitor.setBackgroundColor(colors.black)
-monitor.clear()
 monitor.setTextScale(0.5)
 
 local function renderImage()
