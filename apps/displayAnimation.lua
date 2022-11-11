@@ -25,9 +25,8 @@ else
 			monitor.setBackgroundColor(colors.black)
 			monitor.clear()
 
+			sleep(200 / 1000)
 			paintutils.drawImage(image, 1, 1)
-			redstone.setOutput('back', not redstone.getOutput('back'))
-			os.pullEvent('redstone')
 		end
 	end
 
