@@ -14,6 +14,7 @@
 		"read",
 		"write",
 		"window",
-		"turtle"
+		"turtle",
+		"paintutils"
 	]
 }

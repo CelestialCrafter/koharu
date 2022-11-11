@@ -10,6 +10,7 @@ local apps = {
 	{ '/apps/receiveCommand', 'ReceiveCommand' },
 	{ '/apps/shutdown', 'Shutdown' },
 	{ '/apps/reboot', 'Reboot' },
+	{ '/apps/display', 'Display Image' },
 	{ '/apps/createpassword', 'Create Password' }
 }
 

@@ -27,7 +27,7 @@ while true do
 		local item = turtle.getItemDetail(i)
 		local blacklistedItems = { 'minecraft:dirt', 'minecraft:cobblestone', 'minecraft:cobbled_deepslate', 'minecraft:tuff',
 			'minecraft:gravel',
-			'minecraft:flint', 'minecraft:copper' }
+			'minecraft:flint', 'minecraft:raw_copper', 'minecraft:andesite', 'minecraft:diorite', 'minecraft:granite' }
 		if not (item == nil) then
 			if utils.hasValue(blacklistedItems, item.name) then
 				turtle.select(i)
@@ -67,6 +67,7 @@ while true do
 			end
 		end
 	end
+	turtle.select(1)
 
 	turtle.forward()
 
