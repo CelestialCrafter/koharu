@@ -2,7 +2,6 @@ local options = require('/libraries/options')
 
 -- @TODO sendfile/command, receivefile/command, gps
 local apps = {
-	{ '/apps/chatroom', 'Chatroom' },
 	{ '/apps/painting', 'Painting' },
 	{ '/apps/sendFile', 'SendFile' },
 	{ '/apps/receiveFile', 'ReceiveFile' },
