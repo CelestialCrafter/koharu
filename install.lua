@@ -442,6 +442,5 @@ if (not turtle) then
 		print('Installation stopped.')
 	end
 else
-	install('CelestialCrafter', 'bonfire', 'master', drive)
-	fs.delete('startup.lua')
+	install('CelestialCrafter', 'bonfire', 'turtle', drive)
 end
