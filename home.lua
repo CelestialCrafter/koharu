@@ -10,18 +10,7 @@ local apps = {
 	{ '/apps/receiveCommand', 'ReceiveCommand' },
 	{ '/apps/shutdown', 'Shutdown' },
 	{ '/apps/reboot', 'Reboot' },
-	{ '/apps/display', 'Display Image' },
 	{ '/apps/createpassword', 'Create Password' }
 }
-
-if turtle then
-	local turtleApps = {
-		'/apps/mine', 'Mine (5xInfinityx3)'
-	}
-
-	for _, app in ipairs(turtleApps) do
-		table.insert(apps, app)
-	end
-end
 
 options.generateMenu(apps, function(appPath) shell.run(appPath) end, nil, true)
