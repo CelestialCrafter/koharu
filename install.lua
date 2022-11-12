@@ -424,7 +424,7 @@ local function install(user, repo, branch, path)
 	end
 end
 
-local drive = ...
+local drive, branch = ...
 
 if (not drive) then
 	print('You need to input a drive!')
@@ -436,7 +436,7 @@ if (not turtle) then
 	local confirmation = read()
 
 	if (confirmation == 'y') then
-		install('CelestialCrafter', 'bonfire', 'master', drive)
+		install('CelestialCrafter', 'bonfire', branch or 'master', drive)
 		print('Installation completed!')
 	else
 		print('Installation stopped.')
