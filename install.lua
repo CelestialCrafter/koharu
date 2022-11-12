@@ -431,16 +431,4 @@ if (not drive) then
 	return
 end
 
-if (not turtle) then
-	print('Are you sure you want to install? [y/n]')
-	local confirmation = read()
-
-	if (confirmation == 'y') then
-		install('CelestialCrafter', 'bonfire', 'master', drive)
-		print('Installation completed!')
-	else
-		print('Installation stopped.')
-	end
-else
-	install('CelestialCrafter', 'bonfire', 'turtle', drive)
-end
+install('CelestialCrafter', 'bonfire', 'turtle', drive)
