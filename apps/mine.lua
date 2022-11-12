@@ -23,6 +23,7 @@ local j = 0
 while true do
 	j = j + 1
 	for i = 1, 16 do
+		turtle.select(i)
 		refuel()
 		local item = turtle.getItemDetail(i)
 		local blacklistedItems = { 'minecraft:dirt', 'minecraft:cobblestone', 'minecraft:cobbled_deepslate', 'minecraft:tuff',
@@ -30,7 +31,6 @@ while true do
 			'minecraft:flint', 'minecraft:raw_copper', 'minecraft:andesite', 'minecraft:diorite', 'minecraft:granite' }
 		if not (item == nil) then
 			if utils.hasValue(blacklistedItems, item.name) then
-				turtle.select(i)
 				turtle.drop(64)
 			end
 		end
