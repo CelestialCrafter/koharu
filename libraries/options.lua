@@ -31,9 +31,8 @@ function options.generateMenu(options, select, padding, persist)
 
 		if key == keys.enter then
 			utils.clear()
-			if (not persist) then break end
 			select(options[y][1])
-			break
+			if (not persist) then break end
 		elseif key == keys.up then
 			if y > 1 then
 				y = y - 1
